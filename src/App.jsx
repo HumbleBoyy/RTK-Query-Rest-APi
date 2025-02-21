@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import carsData from '../db.json'
 const App = () => {
-  console.log(carsData)
+
   return (
-    <div>
-      
-    </div>
+    <>
+      hello
+    </>
   )
 }
 
