@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card } from 'antd';
+import { InfoCircleOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 const { Meta } = Card;
 const ProductCard = ({item}) => (
   <Card
@@ -15,8 +16,8 @@ const ProductCard = ({item}) => (
        {/* <h3 className='text-[20px]  font-semibold'>Year: {item.year}</h3>
        <h3 className='text-[20px]  font-semibold'>Made in: {item.madeIn}</h3> */}
        <div className='flex gap-2'>
-         <Button className='w-full' size='large' type='primary'>Buy</Button>
-         <Button className='w-full' size='large' type='primary'>More</Button>
+         <Button className='!w-full !text-[20px] flex items-center !bg-green-500' size='large' type='primary'><ShoppingCartOutlined />Purchase</Button>
+         <Button className='w-full !text-[20px] flex items-center' size='large' type='primary'><InfoCircleOutlined />More</Button>
        </div>
     </div>
   </Card>
