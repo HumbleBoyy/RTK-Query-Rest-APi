@@ -10,7 +10,7 @@ const SinglePage = () => {
     const newData = data.find(item => item.id === id)
     const naviagate = useNavigate()
   return (
-<div className='flex  justify-center items-center gap-2 mt-5 h-[100vh] px-2'>
+<div className='flex justify-center items-center h-[90vh] px-2'>
    <Card
    className='flex items-center'
     hoverable
