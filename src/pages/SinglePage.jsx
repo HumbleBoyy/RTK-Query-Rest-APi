@@ -17,7 +17,7 @@ const SinglePage = () => {
     style={{
       width: 1000,
     }}
-    cover={<img alt={newData?.carName} src={newData?.image} className='object-cover w-[550px] h-full !rounded-bl-md !rounded-br-md'/>}
+    cover={<img alt={newData?.carName} src={newData?.image} className='object-contain !w-[1000px]  !rounded-bl-md !rounded-br-md'/>}
     >
     <h1 className='text-[25px] font-bold'>{newData?.carName}</h1>
     <div className='flex flex-col gap-6'>

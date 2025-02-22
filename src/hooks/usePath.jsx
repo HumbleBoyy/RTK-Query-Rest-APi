@@ -1,4 +1,5 @@
 export const PATH = {
      home:"/",
-     more:"/:id"
+     more:"/:id",
+     addCar:'/addCar'
 }
