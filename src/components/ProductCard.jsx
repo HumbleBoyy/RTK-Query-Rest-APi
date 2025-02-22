@@ -15,8 +15,8 @@ const ProductCard = ({item}) => (
        {/* <h3 className='text-[20px]  font-semibold'>Year: {item.year}</h3>
        <h3 className='text-[20px]  font-semibold'>Made in: {item.madeIn}</h3> */}
        <div className='flex gap-2'>
-         <Button size='large' type='primary'>Buy</Button>
-         <Button size='large' type='primary'>More</Button>
+         <Button className='w-full' size='large' type='primary'>Buy</Button>
+         <Button className='w-full' size='large' type='primary'>More</Button>
        </div>
     </div>
   </Card>
