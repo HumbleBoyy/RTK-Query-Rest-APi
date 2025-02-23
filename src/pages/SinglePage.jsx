@@ -4,13 +4,12 @@ import { useDeleteCarMutation, useGetAllCarsQuery } from '../store/carsApi'
 import { Button, Card, Modal } from 'antd'
 import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 import toast, { Toaster } from 'react-hot-toast';
-import { PATH } from '../hooks/usePath';
-
 const SinglePage = () => {
+
     const {id} = useParams()
     const {data = []} = useGetAllCarsQuery()
     const newData = data.find(item => item.id === id)
-    const naviagate = useNavigate()
+    const navigate = useNavigate()
     const [openDelete, setOpenDelete] = useState(false)
     const [deleteItem] = useDeleteCarMutation()
     const [deleteId, setDeleteId] = useState(null)
@@ -19,17 +18,18 @@ const SinglePage = () => {
         setDeleteId(id)
         setOpenDelete(true)
     }
+ 
+
     const handleDelete = () => {
-      
-       setTimeout(()=> {
-        deleteItem(id)
-        toast.success("Success!")
-       },500)
-       setTimeout(()=> {
-        naviagate(PATH.home)
-        setOpenDelete(false)
-       },1500)
-    }
+      deleteItem(deleteId);
+      setDeleteId(null)
+      toast.success("Success!");
+
+      setTimeout(() => {
+          navigate("/"); 
+          setOpenDelete(false); 
+      }, 1500);
+  };
   return (
      <>
      <Toaster
@@ -53,7 +53,7 @@ const SinglePage = () => {
               <h3 className='text-[20px]  font-semibold'>Made in: {newData?.madeIn}</h3>         
                 <Button className='!w-full !text-[20px] flex items-center !bg-green-500' size='large' type='primary'><ShoppingCartOutlined />Purchase</Button>
               <div className='flex gap-2'>
-                <Button onClick={()=> naviagate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
+                <Button onClick={()=> navigate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
                 <Button onClick={()=> handleDeleteClick(id)} className='!w-full !text-[20px] flex items-center !bg-red-500' size='large' type='primary'><DeleteFilled /></Button>
                 <Button className='!w-full !text-[20px] flex items-center !bg-blue-500' size='large' type='primary'><SignatureFilled /></Button>
               </div>
