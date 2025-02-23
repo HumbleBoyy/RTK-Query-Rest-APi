@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { useGetAllCarsQuery } from '../store/carsApi'
 import { Button, Card } from 'antd'
-import { ArrowLeftOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 
 const SinglePage = () => {
     const {id} = useParams()
@@ -24,10 +24,13 @@ const SinglePage = () => {
        <h2 className='text-[20px]  font-semibold'>Price: <span className='text-green-600'>{newData?.price}$</span></h2>
        <h3 className='text-[20px]  font-semibold'>Year: {newData?.year}</h3>
        <h3 className='text-[20px]  font-semibold'>Passengers: {newData?.passangers}</h3>
-       <h3 className='text-[20px]  font-semibold'>Made in: {newData?.madeIn}</h3>
-       <div className='flex gap-2'>
-       <Button onClick={()=> naviagate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
+       <h3 className='text-[20px]  font-semibold'>Made in: {newData?.madeIn}</h3>         
          <Button className='!w-full !text-[20px] flex items-center !bg-green-500' size='large' type='primary'><ShoppingCartOutlined />Purchase</Button>
+       <div className='flex gap-2'>
+         <Button onClick={()=> naviagate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
+         
+         <Button className='!w-full !text-[20px] flex items-center !bg-red-500' size='large' type='primary'><DeleteFilled /></Button>
+         <Button className='!w-full !text-[20px] flex items-center !bg-blue-500' size='large' type='primary'><SignatureFilled /></Button>
        </div>
     </div>
   </Card>
