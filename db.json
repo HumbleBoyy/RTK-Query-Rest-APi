@@ -35,6 +35,15 @@
       "madeIn": "Germany",
       "year": "2024",
       "passangers": "5"
+    },
+    {
+      "id": "327b",
+      "carName": null,
+      "price": null,
+      "image": null,
+      "madeIn": null,
+      "year": null,
+      "passangers": null
     }
   ]
 }

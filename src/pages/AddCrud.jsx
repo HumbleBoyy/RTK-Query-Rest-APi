@@ -25,22 +25,26 @@ const handleSubmit = async (e) => {
     };
 
     try {
-        await saveList(data).unwrap(); // RTK Query mutation natijasini kutish
-        navigate("/"); // Muvaffaqiyatli qo‘shilgandan keyin sahifani boshqa joyga yo‘naltirish
+        await saveList(data).unwrap();
+        navigate("/"); 
     } catch (error) {
         console.error("Xatolik yuz berdi:", error);
     }
 };
   return (
-    <div className='w-full flex justify-center items-center h-[80vh]'>
-      <form onSubmit={handleSubmit} className='!w-[500px] flex flex-col gap-5'>
-         <Input value={carName} onChange={(e)=> setCarName(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Car Name'/>
-         <Input value={image} onChange={(e)=> setImage(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Picture URL'/>
-         <Input value={price} onChange={(e)=> setPrice(e.target.value)} type='number' className='!w-full flex flex-col' size='large' placeholder='Price'/>
-         <Input value={madeIn} onChange={(e)=> setMadeIn(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Made In'/>
-         <Input value={passangers} onChange={(e)=> setPassangers(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Passanger Capacity'/>
-         <Input value={year} onChange={(e)=> setYear(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Released year'/>
-         <Button size='large' type='primary' htmlType='submit'>Add</Button>
+    <div className='w-full flex flex-col justify-center h-[100vh] overflow-hidden bg-slate-300'>
+      <h2 className='block mx-auto text-4xl font-bold mb-5'>Add New Car To Store</h2>
+      <form onSubmit={handleSubmit} className='!w-[500px] flex flex-col gap-3 mx-auto'>
+         <Input required allowClear value={carName} onChange={(e)=> setCarName(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Car Name'/>
+         <Input required allowClear value={image} onChange={(e)=> setImage(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Picture URL'/>
+         <Input required allowClear value={price} onChange={(e)=> setPrice(e.target.value)} type='number' className='!w-full !text-xl font-semibold' size='large' placeholder='Price'/>
+         <Input required allowClear value={madeIn} onChange={(e)=> setMadeIn(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Made In'/>
+         <Input required allowClear value={passangers} onChange={(e)=> setPassangers(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Passanger Capacity'/>
+         <Input required allowClear value={year} onChange={(e)=> setYear(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Released year'/>
+         <div className='w-full flex items-center gap-2'>
+          <Button size='large' type='primary' onClick={()=> navigate(-1)} className='!text-xl !w-full !bg-red-600'>Cancel</Button>
+          <Button size='large' type='primary' htmlType='submit' className='!text-xl !w-full'>Add</Button>
+         </div>
       </form>
     </div>
   )
