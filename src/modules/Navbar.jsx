@@ -10,9 +10,9 @@ import { PATH } from '../hooks/usePath';
 const Navbar = () => {
   const navigate = useNavigate()
   return (
-    <div className='p-3 flex justify-between items-center w-full bg-blue-700'>
+    <div className='p-3 flex justify-between items-center w-full bg-slate-800'>
       <h2 className='text-white text-[30px] font-bold'><DollarOutlined />BuyCar</h2>
-        <Button onClick={()=> navigate(`${PATH.addCar}`)} size='large' type='primary' className='!bg-green-600'><PlusCircleFilled/>Add</Button>
+        <Button onClick={()=> navigate(`${PATH.addCar}`)} size='large' type='primary'><PlusCircleFilled/>Add</Button>
     </div>
   );
 };

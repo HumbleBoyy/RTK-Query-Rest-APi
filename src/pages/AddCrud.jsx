@@ -32,7 +32,7 @@ const handleSubmit = async (e) => {
     }
 };
   return (
-    <div className='w-full flex justify-center items-center h-[100vh]'>
+    <div className='w-full flex justify-center items-center h-[80vh]'>
       <form onSubmit={handleSubmit} className='!w-[500px] flex flex-col gap-5'>
          <Input value={carName} onChange={(e)=> setCarName(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Car Name'/>
          <Input value={image} onChange={(e)=> setImage(e.target.value)} className='!w-full flex flex-col' size='large' placeholder='Picture URL'/>
