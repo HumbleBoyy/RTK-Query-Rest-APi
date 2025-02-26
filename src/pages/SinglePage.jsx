@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useDeleteCarMutation, useGetAllCarsQuery } from '../store/carsApi'
-import { Button, Card, Modal } from 'antd'
+import { useDeleteCarMutation, useEditCarsMutation, useGetAllCarsQuery } from '../store/carsApi'
+import { Button, Card, Input, Modal } from 'antd'
 import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 import toast, { Toaster } from 'react-hot-toast';
+import { retry } from '@reduxjs/toolkit/query';
 const SinglePage = () => {
 
     const {id} = useParams()
@@ -11,14 +12,28 @@ const SinglePage = () => {
     const newData = data.find(item => item.id === id)
     const navigate = useNavigate()
     const [openDelete, setOpenDelete] = useState(false)
-    const [deleteItem] = useDeleteCarMutation()
-    const [deleteId, setDeleteId] = useState(null)
+    const [openEdit, setOpenEdit] = useState(false)
 
+
+
+    const [deleteItem] = useDeleteCarMutation()
+    const [editItem] = useEditCarsMutation()
+    const [deleteId, setDeleteId] = useState(null)
+    const [editId, setEditId] = useState(null)
+
+    const [carName, setCarName] = useState(null)
+    const [image, setImage] = useState(null)
+    const [price, setPrice] = useState(null)
+    const [madeIn, setMadeIn] = useState(null)
+    const [year, setYear] = useState(null)
+    const [passangers, setPassangers] = useState(null)
+
+
+    // Delete Part
     const handleDeleteClick = (id) => {
         setDeleteId(id)
         setOpenDelete(true)
     }
- 
 
     const handleDelete = () => {
       deleteItem(deleteId);
@@ -30,6 +45,39 @@ const SinglePage = () => {
           setOpenDelete(false); 
       }, 1500);
   };
+
+
+/// Edit Part
+
+  const handleEditClick = (id) => {
+   const selectedItem = data.find(item => item.id === id)
+   if(selectedItem){
+      setEditId(id)
+      setCarName(selectedItem.carName)
+      setImage(selectedItem.image)
+      setPrice(selectedItem.price)
+      setMadeIn(selectedItem.madeIn)
+      setYear(selectedItem.year)
+      setPassangers(selectedItem.passangers)
+      setOpenEdit(true)
+   }
+}
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+     const updatedData = {
+       id:editId,
+       carName,
+       image,
+       price,
+       madeIn,
+       year,
+       passangers
+     }
+
+    editItem(updatedData)
+    setOpenEdit(false)
+  }
   return (
      <>
      <Toaster
@@ -55,7 +103,7 @@ const SinglePage = () => {
               <div className='flex gap-2'>
                 <Button onClick={()=> navigate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
                 <Button onClick={()=> handleDeleteClick(id)} className='!w-full !text-[20px] flex items-center !bg-red-500' size='large' type='primary'><DeleteFilled /></Button>
-                <Button className='!w-full !text-[20px] flex items-center !bg-blue-500' size='large' type='primary'><SignatureFilled /></Button>
+                <Button onClick={()=> handleEditClick(id)} className='!w-full !text-[20px] flex items-center !bg-blue-500' size='large' type='primary'><SignatureFilled /></Button>
               </div>
             </div>
           </Card>
@@ -63,6 +111,17 @@ const SinglePage = () => {
 
         <Modal title={"Delete"} open={openDelete} onCancel={()=> setOpenDelete(false)} onOk={handleDelete} onClose={()=> setOpenDelete(false)}>
             <p className='text-[18px] font-semibold'>Do you want to delete <span className='text-blue-600'>{newData?.carName}</span>?</p>
+        </Modal>
+
+        <Modal title={"Edit"} open={openEdit} onCancel={()=> setOpenEdit(false)} onOk={handleSubmit} onClose={()=> setOpenEdit(false)}>
+        <div className='w-[400px] flex flex-col gap-3 mx-auto'>
+         <Input allowClear value={carName} onChange={(e)=> setCarName(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Car Name'/>
+         <Input allowClear value={image} onChange={(e)=> setImage(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Picture URL'/>
+         <Input allowClear value={price} onChange={(e)=> setPrice(e.target.value)} type='number' className='!w-full !text-xl font-semibold' size='large' placeholder='Price'/>
+         <Input allowClear value={madeIn} onChange={(e)=> setMadeIn(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Made In'/>
+         <Input allowClear value={passangers} onChange={(e)=> setPassangers(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Passanger Capacity'/>
+         <Input allowClear value={year} onChange={(e)=> setYear(e.target.value)} className='!w-full !text-xl font-semibold' size='large' placeholder='Released year'/>
+      </div>
         </Modal>
      </>
   )

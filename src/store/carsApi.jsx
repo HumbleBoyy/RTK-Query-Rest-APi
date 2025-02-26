@@ -21,6 +21,14 @@ export const carsApi = createApi({
       }),
       invalidatesTags:['cars']
      }),
+     editCars:builder.mutation({
+      query:(data)=> ({
+        url:`/carsData/${data.id}`,
+        method:"PUT",
+        body:data
+      }),
+      invalidatesTags:['cars']
+     }),
      deleteCar:builder.mutation({
       query:(id)=> ({
         url:`/carsData/${id}`,
@@ -30,4 +38,4 @@ export const carsApi = createApi({
      })
   }),
 })
-export const { useGetAllCarsQuery, useAddCarsMutation, useDeleteCarMutation } = carsApi
+export const { useGetAllCarsQuery, useAddCarsMutation, useDeleteCarMutation, useEditCarsMutation } = carsApi
