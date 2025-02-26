@@ -12,23 +12,14 @@
     {
       "id": "3",
       "carName": "BYD Song Plus",
-      "madeIn": "Uzbekistan",
+      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg",
       "price": 40000,
+      "madeIn": "Uzbekistan",
       "year": 2024,
-      "passangers": 5,
-      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg"
+      "passangers": 5
     },
     {
       "id": "4",
-      "carName": "BYD Song Plus",
-      "madeIn": "Uzbekistan",
-      "price": 40000,
-      "year": 2024,
-      "passangers": 5,
-      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg"
-    },
-    {
-      "id": "5",
       "carName": "BYD Song Plus",
       "madeIn": "Uzbekistan",
       "price": 40000,

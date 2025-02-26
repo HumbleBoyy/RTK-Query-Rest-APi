@@ -46,8 +46,8 @@ const SinglePage = () => {
   };
 
 
-/// Edit Part
 
+/// Edit Part
   const handleEditClick = (id) => {
    const selectedItem = data.find(item => item.id === id)
    if(selectedItem){
@@ -63,7 +63,8 @@ const SinglePage = () => {
 }
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+     e.preventDefault()
+
      const updatedData = {
        id:editId,
        carName,
@@ -73,9 +74,15 @@ const SinglePage = () => {
        year,
        passangers
      }
+      editItem(updatedData)
+      toast.success("Success!")
+     
 
-    editItem(updatedData)
-    setOpenEdit(false)
+    setTimeout(()=> {
+      setOpenEdit(false)
+    },1500)
+   
+   
   }
   return (
      <>
