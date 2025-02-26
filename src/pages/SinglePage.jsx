@@ -4,7 +4,6 @@ import { useDeleteCarMutation, useEditCarsMutation, useGetAllCarsQuery } from '.
 import { Button, Card, Input, Modal } from 'antd'
 import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 import toast, { Toaster } from 'react-hot-toast';
-import { retry } from '@reduxjs/toolkit/query';
 const SinglePage = () => {
 
     const {id} = useParams()
