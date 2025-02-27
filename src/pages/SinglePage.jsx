@@ -1,36 +1,35 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useDeleteCarMutation, useEditCarsMutation, useGetAllCarsQuery } from '../store/carsApi'
+import { useDeleteCarMutation, useEditCarsMutation, useSinglePageDataQuery } from '../store/carsApi'
 import { Button, Card, Input, Modal } from 'antd'
 import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 import toast, { Toaster } from 'react-hot-toast';
 const SinglePage = () => {
 
     const {id} = useParams()
-    const {data = []} = useGetAllCarsQuery()
-    const newData = data.find(item => item.id === id)
+    const  {data: newData} = useSinglePageDataQuery(id)
+
     const navigate = useNavigate()
+
+    // Modal states 
     const [openDelete, setOpenDelete] = useState(false)
     const [openEdit, setOpenEdit] = useState(false)
 
 
-
+  //  RTK Query response
     const [deleteItem] = useDeleteCarMutation()
     const [editItem] = useEditCarsMutation()
+
+   // Store id states
     const [deleteId, setDeleteId] = useState(null)
     const [editId, setEditId] = useState(null)
 
-    const [carName, setCarName] = useState(null)
-    const [image, setImage] = useState(null)
-    const [price, setPrice] = useState(null)
-    const [madeIn, setMadeIn] = useState(null)
-    const [year, setYear] = useState(null)
-    const [passangers, setPassangers] = useState(null)
+
 
 
     // Delete Part
     const handleDeleteClick = (id) => {
-        setDeleteId(id)
+         setDeleteId(id)
         setOpenDelete(true)
     }
 
@@ -48,6 +47,14 @@ const SinglePage = () => {
 
 
 /// Edit Part
+
+// Edit data states
+const [carName, setCarName] = useState(null)
+const [image, setImage] = useState(null)
+const [price, setPrice] = useState(null)
+const [madeIn, setMadeIn] = useState(null)
+const [year, setYear] = useState(null)
+const [passangers, setPassangers] = useState(null)
   const handleEditClick = (id) => {
    const selectedItem = data.find(item => item.id === id)
    if(selectedItem){

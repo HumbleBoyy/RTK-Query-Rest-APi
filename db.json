@@ -10,6 +10,15 @@
       "image": "https://enon-cars.com/wp-content/uploads/2024/05/byd-han-2023-1024x576.webp"
     },
     {
+      "id": "2",
+      "carName": "BYD Song Plus",
+      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg",
+      "price": 40000,
+      "madeIn": "Uzbekistan",
+      "year": 2024,
+      "passangers": 5
+    },
+    {
       "id": "3",
       "carName": "BYD Song Plus",
       "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg",
@@ -21,11 +30,29 @@
     {
       "id": "4",
       "carName": "BYD Song Plus",
-      "madeIn": "Uzbekistan",
+      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg",
       "price": 40000,
+      "madeIn": "Uzbekistan",
       "year": 2024,
-      "passangers": 5,
-      "image": "https://i.bstr.es/highmotor/2023/06/byd-song-plus-2023-ev.jpg"
+      "passangers": 5
+    },
+    {
+      "id": "8",
+      "carName": "BMW X6",
+      "image": "https://images.dealer.com/autodata/us/640/color/2025/USD50BMS231A0/300.jpg",
+      "price": "120000",
+      "madeIn": "Germany",
+      "year": 2024,
+      "passangers": 5
+    },
+    {
+      "id": "f801",
+      "carName": "Mercedes AMG GT 63",
+      "price": "250000",
+      "image": "https://www.goodwood.com/globalassets/.road--racing/road/news/2024/04-march/amg-gt-e-performance/24c0120_002.jpg?rxy=0.5,0.5",
+      "madeIn": "Germany",
+      "year": "2023",
+      "passangers": "2"
     }
   ]
 }

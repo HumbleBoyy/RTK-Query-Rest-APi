@@ -35,7 +35,12 @@ export const carsApi = createApi({
         method:"DELETE"
       }),
       invalidatesTags:['cars']
+     }),
+     singlePageData:builder.query({
+      query:(id) => ({
+        url:`/carsData/${id}`,
+      })
      })
   }),
 })
-export const { useGetAllCarsQuery, useAddCarsMutation, useDeleteCarMutation, useEditCarsMutation } = carsApi
+export const { useGetAllCarsQuery, useAddCarsMutation, useDeleteCarMutation, useEditCarsMutation, useSinglePageDataQuery} = carsApi

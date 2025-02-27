@@ -2,6 +2,7 @@ import { Button, Input } from 'antd'
 import React, { useState } from 'react'
 import { useAddCarsMutation } from '../store/carsApi'
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 const AddCrud = () => {
 const [carName, setCarName] = useState(null)
@@ -26,6 +27,7 @@ const handleSubmit = async (e) => {
 
     try {
         await saveList(data).unwrap();
+        toast.success("Success")
         navigate("/"); 
     } catch (error) {
         console.error("Xatolik yuz berdi:", error);
