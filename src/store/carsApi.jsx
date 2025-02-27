@@ -32,7 +32,7 @@ export const carsApi = createApi({
      deleteCar:builder.mutation({
       query:(id)=> ({
         url:`/carsData/${id}`,
-        method:"DELETE"
+        method:"delete",
       }),
       invalidatesTags:['cars']
      }),

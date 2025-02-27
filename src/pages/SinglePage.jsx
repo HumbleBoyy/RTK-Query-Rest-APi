@@ -17,7 +17,7 @@ const SinglePage = () => {
 
 
   //  RTK Query response
-    const [deleteItem] = useDeleteCarMutation()
+    const [deleteItem] = useDeleteCarMutation(id)
     const [editItem] = useEditCarsMutation()
 
    // Store id states
@@ -26,22 +26,22 @@ const SinglePage = () => {
 
 
 
-
     // Delete Part
-    const handleDeleteClick = (id) => {
+    const handleDeleteClick = () => {
          setDeleteId(id)
         setOpenDelete(true)
     }
 
     const handleDelete = () => {
       deleteItem(deleteId);
-      setDeleteId(null)
+      
       toast.success("Success!");
 
       setTimeout(() => {
-          navigate("/"); 
+          navigate(-1); 
+          console.log("Hello")
           setOpenDelete(false); 
-      }, 1500);
+      }, 500);
   };
 
 
@@ -115,7 +115,7 @@ const [passangers, setPassangers] = useState(null)
                 <Button className='!w-full !text-[20px] flex items-center !bg-green-500' size='large' type='primary'><ShoppingCartOutlined />Purchase</Button>
               <div className='flex gap-2'>
                 <Button onClick={()=> navigate(-1)} className='w-full !text-[20px] flex items-center !bg-red-600' size='large' type='primary'><ArrowLeftOutlined />Cancel</Button>
-                <Button onClick={()=> handleDeleteClick(id)} className='!w-full !text-[20px] flex items-center !bg-red-500' size='large' type='primary'><DeleteFilled /></Button>
+                <Button onClick={()=> handleDeleteClick()} className='!w-full !text-[20px] flex items-center !bg-red-500' size='large' type='primary'><DeleteFilled /></Button>
                 <Button onClick={()=> handleEditClick(id)} className='!w-full !text-[20px] flex items-center !bg-blue-500' size='large' type='primary'><SignatureFilled /></Button>
               </div>
             </div>
