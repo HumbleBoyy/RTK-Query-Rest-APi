@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { useDeleteCarMutation, useEditCarsMutation, useSinglePageDataQuery } from '../store/carsApi'
+import { useDeleteCarMutation, useEditCarsMutation, useGetAllCarsQuery, useSinglePageDataQuery } from '../store/carsApi'
 import { Button, Card, Input, Modal } from 'antd'
 import { ArrowLeftOutlined, DeleteFilled, ShoppingCartOutlined, SignatureFilled } from '@ant-design/icons';
 import toast, { Toaster } from 'react-hot-toast';
@@ -8,7 +8,7 @@ const SinglePage = () => {
 
     const {id} = useParams()
     const  {data: newData} = useSinglePageDataQuery(id)
-
+    const {data = []} = useGetAllCarsQuery()
     const navigate = useNavigate()
 
     // Modal states 
@@ -26,7 +26,7 @@ const SinglePage = () => {
 
 
 
-    // Delete Part
+  // Delete Part
     const handleDeleteClick = () => {
          setDeleteId(id)
         setOpenDelete(true)
@@ -55,8 +55,10 @@ const [price, setPrice] = useState(null)
 const [madeIn, setMadeIn] = useState(null)
 const [year, setYear] = useState(null)
 const [passangers, setPassangers] = useState(null)
+
   const handleEditClick = (id) => {
    const selectedItem = data.find(item => item.id === id)
+
    if(selectedItem){
       setEditId(id)
       setCarName(selectedItem.carName)
@@ -71,7 +73,6 @@ const [passangers, setPassangers] = useState(null)
 
   const handleSubmit = (e) => {
      e.preventDefault()
-
      const updatedData = {
        id:editId,
        carName,

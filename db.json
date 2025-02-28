@@ -11,21 +11,57 @@
     },
     {
       "id": "2",
-      "carName": "BYD Han",
-      "madeIn": "Uzbekistan",
-      "price": 30000,
+      "carName": "BMW X6",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/2024-bmw-x6-112-1675791922.jpg?crop=0.732xw:0.548xh;0.118xw,0.235xh&resize=1200:*",
+      "price": "60000",
+      "madeIn": "Germany",
       "year": 2024,
-      "passangers": 4,
-      "image": "https://enon-cars.com/wp-content/uploads/2024/05/byd-han-2023-1024x576.webp"
+      "passangers": 4
     },
     {
       "id": "3",
-      "carName": "BYD Han",
-      "madeIn": "Uzbekistan",
-      "price": 30000,
+      "carName": "BMW X5",
+      "image": "https://hips.hearstapps.com/hmg-prod/images/p90495464-1677001974.jpg?crop=0.720xw:0.608xh;0.250xw,0.329xh&resize=1200:*",
+      "price": "40000",
+      "madeIn": "Germany",
       "year": 2024,
-      "passangers": 4,
-      "image": "https://enon-cars.com/wp-content/uploads/2024/05/byd-han-2023-1024x576.webp"
+      "passangers": 4
+    },
+    {
+      "id": "4",
+      "carName": "BMW M8",
+      "image": "https://cdn.motor1.com/images/mgl/NGZB0Y/s1/manhart-mh8-800-limited-01-10.jpg",
+      "price": "100000",
+      "madeIn": "Germany",
+      "year": "2023",
+      "passangers": "4"
+    },
+    {
+      "id": "5",
+      "carName": "Porsche Cayenne",
+      "image": "https://cdn.motor1.com/images/mgl/AkQr3N/s3/2025-porsche-cayenne-gts-coupe-first-drive-review.jpg",
+      "price": "70000",
+      "madeIn": "Germany",
+      "year": "2023",
+      "passangers": "6"
+    },
+    {
+      "id": "6",
+      "carName": "Tesla Model 3",
+      "image": "https://www.shop4tesla.com/cdn/shop/articles/tesla-model-3-uber-230000-km-und-tausende-euro-gespart-956682.jpg?v=1728598029",
+      "price": "160000",
+      "madeIn": "USA",
+      "year": "2022",
+      "passangers": 4
+    },
+    {
+      "id": "7",
+      "carName": "Lucid Air",
+      "image": "https://themastercylinder.blog/wp-content/uploads/2021/07/2021-lucid-air-62.jpg?w=1024",
+      "price": "260000",
+      "madeIn": "USA",
+      "year": 2024,
+      "passangers": 4
     }
   ]
 }
